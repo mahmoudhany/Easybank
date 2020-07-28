@@ -1,0 +1,76 @@
+.hero {
+  background: $veryLightGray;
+  @include breakpoint-down(medium) {
+    overflow: hidden;
+  }
+  .container {
+    @include breakpoint-up(large) {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+  &__image {
+    position: relative;
+    min-height: 17.5rem;
+    @include breakpoint-up(medium) {
+      height: 26rem;
+    }
+    @include breakpoint-up(large) {
+      flex: 3;
+      height: 25rem;
+    }
+    &::before {
+      @include breakpoint-up(large) {
+        background-image: url("/images/bg-intro-desktop.svg");
+        height: 110%;
+        width: 170%;
+      }
+      content: "";
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 100%;
+      background-image: url("/images/bg-intro-mobile.svg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+    img {
+      @include breakpoint-up(medium) {
+        width: 60%;
+      }
+      @include breakpoint-up(large) {
+        width: 63%;
+        top: 0;
+        margin-right: -30%;
+      }
+      position: absolute;
+      max-width: 90%;
+      margin: 0 auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+  &__text {
+    @include breakpoint-up(large) {
+      flex: 2;
+      text-align: left;
+    }
+    text-align: center;
+    padding-top: 2.25rem;
+    h1 {
+      @include breakpoint-up(large) {
+        font-size: $font-xlg;
+      }
+      font-weight: 300;
+      color: $darkBlue;
+      font-size: 1.875rem;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    p {
+      margin-bottom: 2.25rem;
+    }
+  }
+}
